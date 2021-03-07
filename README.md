@@ -8,7 +8,7 @@ The first step was to create a new variable that would be used to reference a co
 
 <img width="253" alt="tickerIndex" src="https://user-images.githubusercontent.com/79600550/110257518-5093ef80-7f6c-11eb-94a2-d48121e898a2.png">
 
-Once the "tickerIndex" variable was created, a set of 3 additional arrays were created (in addition to the tickers(12) array) representing the values of interest when analyzing the dataset. These arrays were declared as long and single, respectively. 
+Once the "tickerIndex" variable was created, a set of three additional arrays were created (in addition to the tickers(12) array), representing the values of interest when analyzing the dataset. These arrays were declared as long and single, respectively. 
 
 <img width="308" alt="dim_arrays" src="https://user-images.githubusercontent.com/79600550/110257819-7ff72c00-7f6d-11eb-87f8-5ba2957056ec.png">
 
@@ -20,7 +20,7 @@ Next, a forloop was provided, referencing the range "2 to RowCount". The variabl
 
 <img width="390" alt="RowCount" src="https://user-images.githubusercontent.com/79600550/110258687-dcf4e100-7f71-11eb-8bbe-614c4f34c48c.png">
 
-This range would provide a loop that would search through the entire dataset in the first column (or column "A"). Here, using the 3 output arrays created in combination with the indexValue variable, a number of functions were performed in order to to a) increase the volume of each ticker in the index; b) use conditionals to check whether the current cell in the loop is the beginning of the set of data regarding the specific ticker of question; c) use conditionals to check whether the current cell in the loop is the end of the set of data regarding the ticker of question; and d) use conditionals once again to increase the value of the variable "tickerIndex" if the following value in the loop did not equal the current value (i.e if the next row in the dataset represented a different ticker symbol - see below). Rather than using the If, ElseIf, Else formatting of conditionals, a seperate If-Then Statement was created for each conditional within the same loop.
+This range would provide a loop that would search through the entire dataset in the first column (or column "A"). Here, using the three output arrays created, in combination with the indexValue variable, a number of functions were performed in order to a) increase the volume of each ticker in the index; b) use conditionals to check whether the current cell in the loop is the beginning of the set of data regarding the specific ticker of question; c) use conditionals to check whether the current cell in the loop is the end of the set of data regarding the ticker of question; and d) use conditionals once again to increase the value of the variable "tickerIndex" if the following value in the loop did not equal the current value (i.e if the next row in the dataset represented a different ticker symbol - see below). Rather than using the If, ElseIf, Else formatting of conditionals, a seperate If-Then Statement was created for each conditional within the same loop.
 
 <img width="691" alt="forloop_conditionals" src="https://user-images.githubusercontent.com/79600550/110258646-acad4280-7f71-11eb-9850-84172e383163.png">
 

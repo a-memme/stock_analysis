@@ -24,7 +24,7 @@ This range would provide a loop that would search through the entire dataset in 
 
 <img width="691" alt="forloop_conditionals" src="https://user-images.githubusercontent.com/79600550/110258646-acad4280-7f71-11eb-9850-84172e383163.png">
 
-Finally, in order to output the data, another single forloop was created, looping through numbers 0 to 11 to reference each element in the four arrays. Statements were written to output the data to the referenced worksheet "All Stocks Analysis", filling the respective cells with the analyzed data of interest (i.e each ticker heading, total daily volume for each ticker, and yearly return % for each ticker).
+Finally, in order to output the data, another single forloop was created, looping through numbers 0 to 11 to reference each element in the four arrays. Statements were written to output the data to the referenced worksheet "All Stocks Analysis", using the values collected in the four arrays, and filling the respective cells with the analyzed data of interest (i.e each ticker heading, total daily volume for each ticker, and yearly return % for each ticker).
 
 <img width="572" alt="outputting_data" src="https://user-images.githubusercontent.com/79600550/110259002-6f49b480-7f73-11eb-9698-21a6754e0de1.png">
 

@@ -1,0 +1,108 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2578
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 Module Code
+\f1\b0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \
+Sub AllStocksAnalysis()
+\f1\b0 \
+\
+Dim startTime As Single\
+Dim endTime As Single\
+\
+'create input box for dynamic variable for year\
+yearValue = InputBox("What year would you like to run the analysis on?")\
+\
+'set timer\
+startTime = Timer\
+\
+Worksheets("All Stock Analysis").Activate\
+\
+'make headers for new sheet\
+Range("A1").Value = "All Stocks (" + yearValue + ")"\
+Cells(3, 1).Value = "Ticker"\
+Cells(3, 2).Value = "Total Daily Volume"\
+Cells(3, 3).Value = "Return"\
+\
+'initialize an array of all tickers\
+Dim tickers(12) As String\
+tickers(0) = "AY"\
+tickers(1) = "CSIQ"\
+tickers(2) = "DQ"\
+tickers(3) = "ENPH"\
+tickers(4) = "FSLR"\
+tickers(5) = "HASI"\
+tickers(6) = "JKS"\
+tickers(7) = "RUN"\
+tickers(8) = "SEDG"\
+tickers(9) = "SPWR"\
+tickers(10) = "TERP"\
+tickers(11) = "VSLR"\
+\
+'prepare for analysis of tickers\
+\
+Dim startingPrice As Single\
+Dim endingPrice As Single\
+Worksheets(yearValue).Activate\
+rowStart = 2\
+rowEnd = Cells(Rows.Count, "A").End(xlUp).Row\
+\
+'loop through tickers\
+For i = 0 To 11\
+    ticker = tickers(i)\
+    TotalVolume = 0\
+    'loop through rows in the data\
+    Worksheets(yearValue).Activate\
+    For j = rowStart To rowEnd\
+           \
+            If Cells(j, 1).Value = ticker Then\
+            TotalVolume = TotalVolume + Cells(j, 8).Value\
+            End If\
+    \
+            If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then\
+            startingPrice = Cells(j, 6).Value\
+            End If\
+    \
+            If Cells(i + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then\
+            endingPrice = Cells(j, 6).Value\
+            End If\
+            \
+        Next j\
+        \
+        Worksheets("All Stock Analysis").Activate\
+        Cells(4 + i, 1).Value = ticker\
+        Cells(4 + i, 2).Value = TotalVolume\
+        Cells(4 + i, 3).Value = (endingPrice / startingPrice) - 1\
+        \
+    Next i\
+    \
+'conditional formatting of cells + loop\
+dataRowStart = 4\
+dataRowEnd = 15\
+\
+For i = dataRowStart To dataRowEnd\
+\
+    If Cells(i, 3) > 0 Then\
+    'change cell colour to green\
+        Cells(i, 3).Interior.Color = vbGreen\
+    ElseIf Cells(i, 3) < 0 Then\
+    'change cell colour to red\
+        Cells(i, 3).Interior.Color = vbRed\
+    Else\
+    'change cell colour back to white\
+        Cells(i, 3).Interior.Colour = xlNone\
+    End If\
+    \
+Next i\
+    \
+ 'end timer with message display\
+endTime = Timer\
+MsgBox "This code ran in " & (endTime - startTime) & " seconds for the year " & (yearValue)\
+\
+End Sub}

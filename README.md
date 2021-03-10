@@ -8,7 +8,7 @@ The first step was to create a new variable that would be used to reference a co
 
 <img width="253" alt="tickerIndex" src="https://user-images.githubusercontent.com/79600550/110257518-5093ef80-7f6c-11eb-94a2-d48121e898a2.png">
 
-Once the "tickerIndex" variable was made, a set of three additional arrays were then created in addition to the tickers array previously stated in the original code. These arrays would represent the values of interest when analyzing the dataset. They were then declared as long and single, respectively. 
+Once the "tickerIndex" variable was made, a set of three additional arrays were then created in addition to the tickers array previously declared in the original code. These arrays would represent the values of interest when analyzing the dataset. They were then declared as long and single, respectively. 
 
 <img width="308" alt="dim_arrays" src="https://user-images.githubusercontent.com/79600550/110257819-7ff72c00-7f6d-11eb-87f8-5ba2957056ec.png">
 
